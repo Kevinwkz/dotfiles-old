@@ -14,7 +14,7 @@ My Void Linux desktop configuration
 * [compton](https://github.com/chjj/compton)
 
 ## Optional
-* [node.js](https://github.com/nodejs/node) - JavaScript runtime > You must enable the "nodejs" polybar module
+* [node.js](https://github.com/nodejs/node) - JavaScript runtime (You must enable the "nodejs" polybar module)
 * [neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim) - Text Editor
 * [flameshot](https://github.com/lupoDharkael/flameshot) - Screenshot software
 * [nitrogen](https://github.com/l3ib/nitrogen/) - Background browser
