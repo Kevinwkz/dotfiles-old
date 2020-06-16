@@ -4,6 +4,12 @@ My Void Linux i3 desktop configuration.
 ## Desktop
 ![Desktop1](https://i.imgur.com/QHfp3FN.png)
 
+#### Programs:
+* [neofetch](https://github.com/dylanaraps/neofetch)
+* [cmatrix](https://github.com/abishekvashok/cmatrix)
+* [alsamixer](https://github.com/gittup/alsa-utils/tree/gittup/alsamixer)
+* [ranger](https://github.com/ranger/ranger)
+
 ## Neovim
 ![Desktop2](https://i.imgur.com/5eQwgCJ.png)
 
