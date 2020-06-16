@@ -3,6 +3,7 @@ My Void Linux i3 desktop configuration.
 
 ## Desktop
 ![Desktop1](https://i.imgur.com/QHfp3FN.png)
+![Desktop2](https://i.imgur.com/XOALQb9.png)
 
 #### Programs:
 * [neofetch](https://github.com/dylanaraps/neofetch)
