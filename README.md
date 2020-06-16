@@ -1,5 +1,5 @@
 # Preview
-My Void Linux desktop configuration
+My Void Linux i3 desktop configuration.
 
 ## Desktop
 ![Desktop1](https://i.imgur.com/QHfp3FN.png)
@@ -10,8 +10,10 @@ My Void Linux desktop configuration
 # Dependencies
 
 ## Required
-* [polybar](https://github.com/polybar/polybar)
-* [compton](https://github.com/chjj/compton)
+* [i3-gaps](https://github.com/Airblader/i3) - i3wm fork with gaps
+* [polybar](https://github.com/polybar/polybar) - Custom top bar
+* [compton](https://github.com/chjj/compton) - Compositor for X11
+* [rofi](https://github.com/davatorium/rofi) - Window switcher
 
 ## Optional
 * [node.js](https://github.com/nodejs/node) - JavaScript runtime (You must enable the "nodejs" polybar module)
