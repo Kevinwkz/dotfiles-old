@@ -1,8 +1,10 @@
 [bar/kevinwkz]
 ;monitor = DP-4
 width = 100%
-height = 35
+height = 17
 radius = 0.0
+
+vertical-align = 5
 
 enable-ipc = true
 pin-workspaces = true
@@ -11,16 +13,11 @@ background = #222
 foreground = #dfdfdf
 foreground-alt = #444
 alert = #bd2c40
-theme = #07aefc
+theme = #00acc1
 
 line-size = 3
 line-color = #f00
-
-border-left-size = 26
-border-right-size = 26
-border-top-size = 13
 border-bottom-size = 1
-border-color = #00000000
 border-bottom-color = ${self.theme}
 
 padding-left = 0
@@ -28,15 +25,15 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 2
 
-font-0 = Hack Nerd Font Mono:style=Bold:pixelsize=10;0
-font-1 = Hack Nerd Font Mono:style=Regular:pixelsize=18;0
-font-2 = Hack Nerd Font Mono:style=Regular:pixelsize=24;0
-font-3 = Hack Nerd Font Mono:style=Regular:pixelsize=30;0
-font-4 = Hack Nerd Font Mono:style=Bold:pixelsize=10;0
+font-0 = "Hack Nerd Font Mono:style=Bold:pixelsize=10;2"
+font-1 = "Noto Color Emoji:style=Regular:scale=11;2"
+font-2 = "Hack Nerd Font Mono:style=Bold:size=17;5"
+font-3 = "Hack Nerd Font Mono:style=Regular:pixelsize=16;3"
+font-4 = "Hack Nerd Font Mono:style=Bold:pixelsize=10;2"
 
 modules-left = i3 xwindow
 modules-center = mpd
-modules-right = xbps xbps-pkgs nodejs filesystem xbacklight xkeyboard memory cpu wlan eth battery temperature pulseaudio date powermenu
+modules-right = xbps xbps-pkgs filesystem xbacklight memory wlan eth battery temperature pulseaudio xkeyboard date powermenu
 
 wm-restack = i3
 
@@ -56,16 +53,17 @@ cursor-scroll = ns-resize
 type = internal/xwindow
 format = <label>
 format-prefix =  
-format-prefix-font = 2
+format-prefix-font = 4
 format-prefix-padding = 1
 label = %title:0:30:...%
 label-font = 5
+format-foreground = ${bar/kevinwkz.theme}
 
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = 
+format-prefix = 🌎
 format-prefix-font = 2
 format-prefix-padding = 1
 format-prefix-foreground = ${bar/kevinwkz.foreground}
@@ -81,8 +79,9 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
+mount-1 = /home
 
-format-mounted-prefix = 
+format-mounted-prefix = 💾
 format-mounted-prefix-font = 2
 format-mounted-prefix-padding = 1
 format-mounted-foreground = #2081cc
@@ -105,13 +104,13 @@ type = custom/text
 content="  "
 content-font = 3
 content-background = ${bar/kevinwkz.theme}
-click-left = rofi -show drun -show-icons
+click-left = dmenu_run -l 8
 
 [module/i3]
 type = internal/i3
 
 ws-icon-0 = 1;
-ws-icon-1 = 2;
+ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3 = 4;
 ws-icon-4 = 5;
@@ -134,7 +133,7 @@ wrapping-scroll = false
 reverse-scroll = false
 fuzzy-match = true
 
-label-mode-padding = 2
+label-mode-padding = 1
 label-mode-foreground = ${bar/kevinwkz.foreground}
 label-mode-background = ${bar/kevinwkz.background}
 
@@ -143,12 +142,12 @@ label-focused = %icon%
 label-focused-font = 3
 label-focused-foreground = ${self.label-mode-background}
 label-focused-background = ${bar/kevinwkz.theme}
-label-focused-padding = 2
+label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon%
 label-unfocused-font = 3
-label-unfocused-padding = 2
+label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon%
@@ -160,7 +159,7 @@ label-visible-padding = ${self.label-mode-padding}
 label-urgent = %icon%
 label-urgent-font = 3
 label-urgent-background = ${bar/kevinwkz.alert}
-label-urgent-padding = 2
+label-urgent-padding = 1
 
 [module/mpd]
 type = internal/mpd
@@ -200,7 +199,7 @@ card = intel_backlight
 [module/xbps]
 type = custom/script
 exec = xbps-query -l | wc -l
-format-prefix = 
+format-prefix = 📦 
 format-prefix-font = 2
 format-prefix-padding = 1
 format-prefix-foreground = #ab49fc
@@ -211,7 +210,7 @@ interval = 5
 [module/xbps-pkgs]
 type = custom/script
 exec = xbps-install -un | wc -l | grep '1' && echo -n "$(xbps-install -un | wc -l) Update" || echo -n "$(xbps-install -un | wc -l) Updates"
-format-prefix = 
+format-prefix = 📫
 format-prefix-font = 2
 format-prefix-padding = 1
 format-prefix-foreground = #dd8537
@@ -223,7 +222,7 @@ interval = 5
 type = custom/script
 exec = node -v
 format-prefix = ""
-format-prefix-font = 2
+format-prefix-font = 4
 format-prefix-padding = 1
 format-prefix-foreground = #6bc101
 label = %output%
@@ -242,7 +241,7 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = 
+format-prefix = 🖥
 format-prefix-font = 2
 format-prefix-padding = 1
 format-prefix-foreground = #009900
@@ -274,7 +273,7 @@ type = internal/network
 interface = eno1
 interval = 3.0
 
-format-connected-prefix = 
+format-connected-prefix = 🌐
 format-connected-font = 2
 format-connected-prefix-padding = 1
 format-connected-prefix-foreground = #0dc2dd
@@ -296,7 +295,7 @@ date-alt = %Y-%m-%d
 time = %l:%M %p
 time-alt = %l:%M:%S %p
 
-format-prefix = 
+format-prefix = 📆
 format-prefix-padding = 1
 format-prefix-font = 2
 format-prefix-foreground = #ff0000
@@ -334,7 +333,7 @@ format-charging = <animation-charging> <label-charging>
 
 format-discharging = <animation-discharging> <label-discharging>
 
-format-full-prefix = " "
+format-full-prefix = "🔋 "
 format-full-prefix-foreground = ${bar/kevinwkz.foreground-alt}
 
 ramp-capacity-0 = 
@@ -371,9 +370,19 @@ label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${bar/kevinwkz.alert}
 
-ramp-0 = 0
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 🟢
+ramp-1 = 🟢
+ramp-2 = 🟢
+ramp-3 = 🟢
+ramp-4 = 🟢
+ramp-5 = 🟢
+ramp-6 = 🟢
+ramp-7 = 🟢
+ramp-8 = 🟢
+ramp-9 = 🟡
+ramp-10 = 🟡
+ramp-11 = 🟠
+ramp-12 = 🔴
 ramp-foreground = #dd480d
 ramp-font = 1
 
@@ -385,10 +394,10 @@ expand-right = true
 format-spacing = 1
 
 label-open = 
-label-open-foreground = ${bar/kevinwkz.secondary}
-label-open-font = 2
+label-open-foreground = ${bar/kevinwkz.theme}
+label-open-font = 4
 label-close =  Cancel
-label-close-foreground = ${bar/kevinwkz.secondary}
+label-close-foreground = ${bar/kevinwkz.theme}
 label-separator = |
 label-separator-foreground = ${bar/kevinwkz.foreground-alt}
 
@@ -414,3 +423,4 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
+
